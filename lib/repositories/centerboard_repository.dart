@@ -28,6 +28,7 @@ class CenterboardRepository {
             return PortsmouthModel(
               title: json['Name'],
               dpn: json['DPN'],
+              loa: json['LOA'],
               // urlImage: 'https://image.tmdb.org/t/p/w185${json['poster_path']}',
             );
           },

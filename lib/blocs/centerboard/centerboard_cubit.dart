@@ -16,7 +16,7 @@ class CenterboardCubit extends Cubit<CenterboardState> {
     try {
       emit(LoadingState());
       final centerboardDataList = await repository.getCenterboard();
-      emit(LoadedState(centerboardDataList!));
+      emit(LoadedState(centerboardDataList));
     } catch (e) {
       emit(ErrorState());
     }

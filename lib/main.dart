@@ -2,7 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:portsmouth_bloc/blocs/cubit/centerboard_cubit.dart';
+import 'package:portsmouth_bloc/blocs/centerboard/centerboard_cubit.dart';
+import 'package:portsmouth_bloc/blocs/search/search_cubit.dart';
 import 'package:portsmouth_bloc/pages/centerboard_page.dart';
 import 'package:portsmouth_bloc/pages/definition_screen.dart';
 import 'package:portsmouth_bloc/pages/home_screen.dart';
@@ -70,12 +71,19 @@ final GoRouter _router = GoRouter(
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CenterboardCubit>(
-      create: (context) => CenterboardCubit(
-        repository: CenterboardRepository(
-          Dio(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CenterboardCubit>(
+          create: (context) => CenterboardCubit(
+            repository: CenterboardRepository(
+              Dio(),
+            ),
+          ),
         ),
-      ),
+        BlocProvider<SearchCubit>(
+          create: (context) => SearchCubit(),
+        ),
+      ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: _router,
