@@ -27,6 +27,7 @@ class _CenterboardScreenState extends State<CenterboardScreen> {
           onChanged: (String? newSearchTerm) {
             if (newSearchTerm != null) {
               context.read<SearchCubit>().setSearchTerm(newSearchTerm);
+              print('newSearchTerm: $newSearchTerm');
             }
           },
         ),
