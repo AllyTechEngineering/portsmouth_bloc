@@ -18,6 +18,7 @@ class SearchData extends StatelessWidget {
           ),
           onChanged: (String? newSearchTerm) {
             if (newSearchTerm != null) {
+              // print('In if newSearchTerm: $newSearchTerm');
               context.read<SearchCubit>().setSearchTerm(newSearchTerm);
             }
           },

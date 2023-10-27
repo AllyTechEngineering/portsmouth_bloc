@@ -73,15 +73,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<SearchCubit>(
+          create: (context) => SearchCubit(),
+        ),
         BlocProvider<CenterboardCubit>(
           create: (context) => CenterboardCubit(
             repository: CenterboardRepository(
               Dio(),
             ),
+            searchCubit: SearchCubit(),
           ),
-        ),
-        BlocProvider<SearchCubit>(
-          create: (context) => SearchCubit(),
         ),
       ],
       child: MaterialApp.router(
