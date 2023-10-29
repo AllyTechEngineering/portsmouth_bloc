@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
             repository: CenterboardRepository(
               Dio(),
             ),
-            searchCubit: SearchCubit(),
+            searchCubit: context.read<SearchCubit>(),
           ),
         ),
       ],
