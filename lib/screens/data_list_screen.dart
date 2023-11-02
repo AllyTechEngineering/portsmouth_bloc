@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portsmouth_bloc/blocs/centerboard/centerboard_cubit.dart';
+import 'package:portsmouth_bloc/blocs/data_cubit/data_cubit.dart';
 import 'package:portsmouth_bloc/screens/search_screen.dart';
+import 'package:portsmouth_bloc/screens/selection_screen.dart';
 
-class CenterboardScreen extends StatefulWidget {
+class DataListScreen extends StatefulWidget {
   @override
-  _CenterboardScreenState createState() => _CenterboardScreenState();
+  _DataListScreenState createState() => _DataListScreenState();
 }
 
-class _CenterboardScreenState extends State<CenterboardScreen> {
-  var items = <String>[];
-  List<String> filteredItems = [];
-
+class _DataListScreenState extends State<DataListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +18,8 @@ class _CenterboardScreenState extends State<CenterboardScreen> {
         child: Column(
           children: [
             SearchData(),
-            BlocBuilder<CenterboardCubit, CenterboardState>(
+            SelectionScreen(),
+            BlocBuilder<DataCubit, DataState>(
               builder: (context, state) {
                 if (state is LoadingState) {
                   return Center(
@@ -70,24 +69,10 @@ class _CenterboardScreenState extends State<CenterboardScreen> {
                                     'DPN:',
                                     style: TextStyle(fontSize: 12.0),
                                   ),
-                                  // Text(
-                                  //   centerboardListValue[index].loa,
-                                  //   style: TextStyle(fontSize: 8.0),
-                                  // ),
                                 ],
                               ),
                             ),
                           ),
-                          // Image.asset(
-                          //   'lib/images/boat_name.png',
-                          //   scale: 1,
-                          //   height: 50.0,
-                          //   width: 50.0,
-                          // ),
-                          // CircleAvatar(
-                          //     // backgroundImage: NetworkImage(movies[index].urlImage),
-                          //     ),
-                          // ),
                         ),
                       ),
                     ),

@@ -1,18 +1,18 @@
-part of 'centerboard_cubit.dart';
+part of 'data_cubit.dart';
 
-abstract class CenterboardState extends Equatable {}
+abstract class DataState extends Equatable {}
 
-class InitialState extends CenterboardState {
+class InitialState extends DataState {
   @override
   List<Object> get props => [];
 }
 
-class LoadingState extends CenterboardState {
+class LoadingState extends DataState {
   @override
   List<Object> get props => [];
 }
 
-class LoadedState extends CenterboardState {
+class LoadedState extends DataState {
   LoadedState(this.centerboard);
 
   final List<DataModel> centerboard;
@@ -26,7 +26,7 @@ class LoadedState extends CenterboardState {
   }
 }
 
-class ErrorState extends CenterboardState {
+class ErrorState extends DataState {
   @override
   List<Object> get props => [];
 }

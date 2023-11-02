@@ -1,26 +1,32 @@
 part of 'selection_cubit.dart';
 
+enum SelectionClassChoice {
+  centerboard,
+  keelboat,
+  multihull,
+  offshore,
+}
+
 class SelectionState extends Equatable {
-  final SelectionModel selectionChoice;
+  final SelectionClassChoice selectionClassChoice;
   SelectionState({
-    required this.selectionChoice,
+    this.selectionClassChoice = SelectionClassChoice.centerboard,
   });
-
   factory SelectionState.initial() {
-    return SelectionState(selectionChoice: SelectionModel.centerboard);
+    return SelectionState();
   }
+  @override
+  List<Object> get props => [selectionClassChoice];
 
   @override
-  List<Object> get props => [selectionChoice];
-
-  @override
-  String toString() => 'SelectionState(selectionChoice: $selectionChoice)';
+  String toString() =>
+      'SelectionState(selectionClassChoice: $selectionClassChoice)';
 
   SelectionState copyWith({
-    SelectionModel? selectionChoice,
+    SelectionClassChoice? selectionClassChoice,
   }) {
     return SelectionState(
-      selectionChoice: selectionChoice ?? this.selectionChoice,
+      selectionClassChoice: selectionClassChoice ?? this.selectionClassChoice,
     );
   }
 }
