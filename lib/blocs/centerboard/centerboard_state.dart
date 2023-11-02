@@ -15,7 +15,7 @@ class LoadingState extends CenterboardState {
 class LoadedState extends CenterboardState {
   LoadedState(this.centerboard);
 
-  final List<PortsmouthModel> centerboard;
+  final List<DataModel> centerboard;
 
   @override
   List<Object> get props => [centerboard];

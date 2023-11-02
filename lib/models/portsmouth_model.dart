@@ -1,31 +1,39 @@
 import 'package:equatable/equatable.dart';
 
 class PortsmouthModel extends Equatable {
-  final String title;
+  final String boat;
   final String loa;
   final String dpn;
 
-   PortsmouthModel({
-    this.title = '',
+  PortsmouthModel({
+    this.boat = '',
     this.loa = '',
     this.dpn = '',
   });
 
   @override
-  List<Object> get props => [title, loa, dpn];
+  List<Object> get props => [
+        boat,
+        loa,
+        dpn,
+      ];
 
   @override
-  String toString() => 'PortsmouthModel(title: $title, loa: $loa, dpn: $dpn)';
-
-  PortsmouthModel copyWith({
-    String? title,
-    String? loa,
-    String? dpn,
-  }) {
-    return PortsmouthModel(
-      title: title ?? this.title,
-      loa: loa ?? this.loa,
-      dpn: dpn ?? this.dpn,
-    );
-  }
+  String toString() => 'PortsmouthModel(title: $boat, firstUrl: $loa, url: $dpn)';
+  //
+  // PortsmouthModel copyWith({
+  //   String? title,
+  //   String? loa,
+  //   String? dpn,
+  // }) {
+  //   return PortsmouthModel(
+  //     text: title ?? this.text,
+  //     firsturl: loa ?? this.firsturl,
+  //     url: dpn ?? this.url,
+  //   );
+  // }
 }
+// original model
+// final String title;
+// final String loa;
+// final String dpn;
