@@ -4,13 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portsmouth_bloc/blocs/centerboard/centerboard_cubit.dart';
 import 'package:portsmouth_bloc/blocs/search/search_cubit.dart';
-import 'package:portsmouth_bloc/pages/centerboard_page.dart';
-import 'package:portsmouth_bloc/pages/definition_screen.dart';
-import 'package:portsmouth_bloc/pages/home_screen.dart';
-import 'package:portsmouth_bloc/pages/keelboat_screen.dart';
-import 'package:portsmouth_bloc/pages/multihull_screen.dart';
-import 'package:portsmouth_bloc/pages/offshore_screen.dart';
-import 'package:portsmouth_bloc/pages/settings_screen.dart';
+import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
+import 'package:portsmouth_bloc/screens/centerboard_screen.dart';
+import 'package:portsmouth_bloc/screens/definition_screen.dart';
+import 'package:portsmouth_bloc/screens/home_screen.dart';
+import 'package:portsmouth_bloc/screens/keelboat_screen.dart';
+import 'package:portsmouth_bloc/screens/multihull_screen.dart';
+import 'package:portsmouth_bloc/screens/offshore_screen.dart';
+import 'package:portsmouth_bloc/screens/settings_screen.dart';
 import 'package:portsmouth_bloc/repositories/centerboard_repository.dart';
 import 'package:portsmouth_bloc/utilities/theme.dart';
 
@@ -73,6 +74,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<SelectionCubit>(
+          create: (context) => SelectionCubit(),
+        ),
         BlocProvider<SearchCubit>(
           create: (context) => SearchCubit(),
         ),
@@ -88,7 +92,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: _router,
-        title: 'Flutter Demo',
+        title: 'Portsmouth',
         theme: appTheme,
       ),
     );
