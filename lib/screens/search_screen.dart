@@ -11,7 +11,7 @@ class SearchData extends StatelessWidget {
       children: [
         TextField(
           decoration: InputDecoration(
-            labelText: 'Search checklist',
+            labelText: 'Search...',
             border: InputBorder.none,
             filled: true,
             prefixIcon: Icon(Icons.search),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portsmouth_bloc/blocs/centerboard/centerboard_cubit.dart';
-import 'package:portsmouth_bloc/pages/search.dart';
+import 'package:portsmouth_bloc/screens/search.dart';
 
 class CenterboardScreen extends StatefulWidget {
   @override
