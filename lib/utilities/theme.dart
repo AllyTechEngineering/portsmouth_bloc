@@ -119,11 +119,11 @@ final appTheme = ThemeData(
     ),
   ),
   listTileTheme: ListTileThemeData(
-    textColor: Colors.white,
+    textColor: Colors.white70,
     titleTextStyle: GoogleFonts.robotoSlab(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
-      fontSize: 16,
+      fontSize: 16.0,
       color: const Color(0xFFEEEEEE),
     ),
     subtitleTextStyle: GoogleFonts.robotoSlab(

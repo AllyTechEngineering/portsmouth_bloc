@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:portsmouth_bloc/blocs/data_cubit/data_cubit.dart';
 import 'package:portsmouth_bloc/blocs/search/search_cubit.dart';
 import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
+// import 'package:portsmouth_bloc/models/data_model.dart';
 import 'package:portsmouth_bloc/screens/data_list_screen.dart';
 import 'package:portsmouth_bloc/screens/definition_screen.dart';
 import 'package:portsmouth_bloc/screens/home_screen.dart';
@@ -62,6 +63,12 @@ final GoRouter _router = GoRouter(
           path: 'settings_screen',
           builder: (BuildContext context, GoRouterState state) {
             return const SettingsScreen();
+          },
+        ),
+        GoRoute(
+          path: 'data_table_list_screen',
+          builder: (BuildContext context, GoRouterState state) {
+            return DataListScreen();
           },
         ),
       ],

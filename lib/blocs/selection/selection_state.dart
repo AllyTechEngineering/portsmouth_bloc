@@ -19,8 +19,7 @@ class SelectionState extends Equatable {
   List<Object> get props => [selectionClassChoice];
 
   @override
-  String toString() =>
-      'SelectionState(selectionClassChoice: $selectionClassChoice)';
+  String toString() => 'SelectionState(selectionClassChoice: $selectionClassChoice)';
 
   SelectionState copyWith({
     SelectionClassChoice? selectionClassChoice,

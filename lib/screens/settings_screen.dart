@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portsmouth_bloc/utilities/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -9,6 +11,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late final UrlLauncher urlLauncher;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: const FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'Settings',
+            'About the Developer',
           ),
         ),
       ),
@@ -30,13 +33,87 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                RichText(
-                  text: TextSpan(
-                    text: 'Settings information goes here',
-                    style: TextStyle(fontSize: 12.0, color: Colors.black),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 50.0,
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          _launchURLBrowser('https://allytechllc.com/privacy');
+                        },
+                        child: Text('Privacy'),
+                      ),
+                    ],
                   ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 50.0,
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          _launchURLBrowser('https://www.linkedin.com/in/bob-taylor-mscs-mba/');
+                        },
+                        child: Text('App Developer'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 50.0,
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          _launchURLBrowser('https://allytechllc.com/contact-us');
+                        },
+                        child: Text('Contact Us'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 50.0,
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          _launchURLBrowser('https://allytechllc.com/about-us');
+                        },
+                        child: Text('About Us'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 50.0,
+                  child: Column(
+                    children: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          _launchURLBrowser('https://allytechllc.com/portfolio');
+                        },
+                        child: Text('Portfolio'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
               ],
             ),
@@ -49,4 +126,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
+
+  _launchURLBrowser(String urlValue) async {
+    var url = Uri.parse(urlValue);
+    if (await canLaunchUrl(url)) {
+      print('Inside of if means canLaunchUrl ok');
+      await launchUrl(url);
+    } else {
+      print('After the else means an error: $url');
+      throw 'Could not launch $url';
+    } //else
+  } //_launchURLBrowser
 }

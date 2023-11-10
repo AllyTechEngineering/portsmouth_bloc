@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portsmouth_bloc/screens/selection_screen.dart';
 
-import '../utilities/constants.dart';
+// import '../utilities/constants.dart';
 import '../utilities/portsmouth_categories.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,22 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/ocean_background.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 25.0),
-            child: ListView.separated(
-              // padding: const EdgeInsets.all(8),
-              itemCount: categoriesClass.categoriesTitles.length,
-              itemBuilder: (BuildContext context, int index) {
-                return _buildInkWell(index);
-              },
-              separatorBuilder: (BuildContext context, int index) => const Divider(
-                height: 25.0,
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  SelectionScreen(),
+                ],
               ),
             ),
           ),
@@ -69,80 +61,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   } //Widget
-
-  InkWell _buildInkWell(int index) {
-    return InkWell(
-      onTap: () {
-        switch (index) {
-          case 0:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 1:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 2:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 3:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 4:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 5:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 6:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          case 7:
-            {
-              _detectOnTapMethod(categoriesClass.categoriesScreens[index]);
-            }
-            break;
-          default:
-            {
-              print('Default');
-            }
-            break;
-        } //switch
-      },
-      child: _containerMethod(index),
-    );
-  }
-
-  Container _containerMethod(int index) {
-    return Container(
-      decoration: styleBoxDecoration,
-      height: 65.0,
-      width: 20.0,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 8.0, 1.0),
-        child: Text(
-          categoriesClass.categoriesTitles[index],
-          style: Theme.of(context).textTheme.bodyLarge,
-          textAlign: TextAlign.left,
-        ),
-      ),
-    );
-  } //Widget
-
-  _detectOnTapMethod(String valueOfScreen) {
-    print('Inside of _detectOnTapMethod');
-    context.go('/$valueOfScreen');
-  }
 } //class
