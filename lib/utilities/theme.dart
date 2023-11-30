@@ -7,10 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 /// dark 0xFF176B87
 /// medium 0xFF64CCC5
 /// light 0xFFEEEEEE
-String fontValue = 'GoogleFonts.robotoSlab()';
+String fontValue = 'GoogleFonts.roboto()';
 final appTheme = ThemeData(
   useMaterial3: true,
-  fontFamily: GoogleFonts.robotoSlab().fontFamily,
+  fontFamily: GoogleFonts.roboto().fontFamily,
 
 // Define the default brightness and colors.
   colorScheme: ColorScheme.fromSeed(
@@ -18,42 +18,42 @@ final appTheme = ThemeData(
     brightness: Brightness.light,
   ),
 
-  scaffoldBackgroundColor: const Color(0xFF64CCC5),
+  scaffoldBackgroundColor: const Color(0xFFE5E8E8),
   inputDecorationTheme: const InputDecorationTheme(
     filled: true,
     fillColor: Color(0xFF053B50),
     focusColor: Color(0xFFEEEEEE),
     hoverColor: Color(0xFFEEEEEE),
-    prefixIconColor: Color(0xFFEEEEEE),
+    prefixIconColor: Color(0xFFFFFFFF),
     prefixStyle: TextStyle(
       color: Color(0xFFEEEEEE),
     ),
     floatingLabelStyle: TextStyle(
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFF34495E),
     ),
     labelStyle: TextStyle(
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFF34495E),
     ),
     hintStyle: TextStyle(
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFFFFFFFF),
     ),
     helperStyle: TextStyle(
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFF34495E),
     ),
   ),
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     actionsIconTheme: IconThemeData(
       size: 40.0,
       weight: 400.0,
       fill: 1.0,
-      color: Color(0xFF64CCC5),
+      color: Color(0xFFFFFFFF),
       opacity: 1.0,
     ),
     iconTheme: IconThemeData(
       size: 40.0,
       weight: 900.0,
       fill: 1.0,
-      color: Color(0xFF64CCC5),
+      color: Color(0xFFFFFFFF),
       opacity: 1.0,
     ),
     elevation: 4,
@@ -63,78 +63,80 @@ final appTheme = ThemeData(
   ),
 
   textTheme: TextTheme(
-    bodyLarge: GoogleFonts.robotoSlab(
+    bodyLarge: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 24,
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFFFFFFFF),
     ),
-    bodyMedium: GoogleFonts.robotoSlab(
+    bodyMedium: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.normal,
-      fontSize: 16,
-      color: Color(0xFFEEEEEE),
+      fontWeight: FontWeight.bold,
+      fontSize: 12,
+      color: Color(0xFF000000),
     ),
-    bodySmall: GoogleFonts.robotoSlab(
+    bodySmall: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 10,
-      color: Color(0xFFEEEEEE),
+      color: Color(0xFFFFFFFF),
     ),
-    displayLarge: GoogleFonts.robotoSlab(
+    displayLarge: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 20,
-      color: const Color(0xFFEEEEEE),
+      color: const Color(0xFFFFFFFF),
     ),
-    displayMedium: GoogleFonts.robotoSlab(
+    displayMedium: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 16,
-      color: const Color(0xFFEEEEEE),
+      color: const Color(0xFFFFFFFF),
     ),
-    displaySmall: GoogleFonts.robotoSlab(
+    displaySmall: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 12,
-      color: const Color(0xFFEEEEEE),
+      color: const Color(0xFFFFFFFF),
     ),
-    titleLarge: GoogleFonts.robotoSlab(
+    titleLarge: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.normal,
-      fontSize: 24,
-      color: const Color(0xFFEEEEEE),
+      fontWeight: FontWeight.bold,
+      fontSize: 40,
+      color: const Color(0xFF000000),
     ),
-    titleMedium: GoogleFonts.robotoSlab(
+    titleMedium: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.normal,
-      fontSize: 16,
-      color: const Color(0xFFEEEEEE),
+      fontWeight: FontWeight.bold,
+      fontSize: 30,
+      color: const Color(0xFF000000),
     ),
-    titleSmall: GoogleFonts.robotoSlab(
+    titleSmall: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.normal,
-      fontSize: 10,
-      color: const Color(0xFFEEEEEE),
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      color: const Color(0xFF000000),
     ),
   ),
   listTileTheme: ListTileThemeData(
-    textColor: Colors.white70,
-    titleTextStyle: GoogleFonts.robotoSlab(
+    dense: true,
+    visualDensity: VisualDensity(vertical: -3, horizontal: -3),
+    textColor: Colors.white,
+    titleTextStyle: GoogleFonts.roboto(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
-      fontSize: 16.0,
-      color: const Color(0xFFEEEEEE),
+      fontSize: 10.0,
+      color: const Color(0xFFFFFFFF),
     ),
-    subtitleTextStyle: GoogleFonts.robotoSlab(
+    subtitleTextStyle: GoogleFonts.roboto(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
-        fontSize: 14,
+        fontSize: 10,
         color: const Color(0xFFEEEEEE)),
     tileColor: const Color(0xFF053B50),
     shape: RoundedRectangleBorder(
       side: BorderSide(width: 2),
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(10),
       //border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(25.0))),
     ),
   ),

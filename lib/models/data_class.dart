@@ -5,10 +5,5 @@ class DataClass {
   String loa;
   String crewSize;
 
-  DataClass(
-      {required this.sailArea,
-      required this.boat,
-      required this.dpn,
-      required this.loa,
-      required this.crewSize});
+  DataClass({this.sailArea = '', this.boat = '', this.dpn = '', this.loa = '', this.crewSize = ''});
 }

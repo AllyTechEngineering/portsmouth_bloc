@@ -10,40 +10,59 @@ class SearchData extends StatefulWidget {
 }
 
 class _SearchDataState extends State<SearchData> {
+  var orientation, size, height, width;
   TextEditingController controller = TextEditingController();
   String? _newSearchTerm = '';
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
+    // orientation = MediaQuery.of(context).orientation;
+    // print('Orientation: $orientation');
+    // size = MediaQuery.of(context).size;
+    // print('Size: $size');
+    // height = size.height;
+    // print('Height: $height');
+    // width = size.width;
+    // print('Width: $width');
+    return Container(
+      // height: height * 0.25,
+      // width: width * 0.8,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
           title: TextField(
+            cursorColor: Colors.white,
             controller: controller,
             decoration: InputDecoration(
-              labelText: 'Search...',
-              border: InputBorder.none,
-              filled: true,
-              prefixIcon: Icon(Icons.search),
+              hintStyle: Theme.of(context).textTheme.displayLarge,
+              hintText: 'Search...',
+              prefixIcon: Icon(
+                Icons.search,
+                // size: height * 0.08,
+              ),
             ),
             onChanged: (value) {
               _newSearchTerm = value;
               if (_newSearchTerm != null) {
-                // print('In if newSearchTerm: $newSearchTerm');
                 context.read<SearchCubit>().setSearchTerm(_newSearchTerm!);
               }
             },
           ),
           trailing: IconButton(
-            icon: Icon(Icons.cancel),
+            icon: Icon(
+              Icons.cancel,
+              color: Colors.white,
+              // size: height * 0.08,
+            ),
             onPressed: () {
               setState(() {
                 controller.clear();
                 _newSearchTerm = '';
+                context.read<SearchCubit>().setSearchTerm(_newSearchTerm!);
               });
             },
           ),
         ),
-      ],
+      ),
     );
   }
 }

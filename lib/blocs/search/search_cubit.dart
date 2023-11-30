@@ -9,5 +9,6 @@ class SearchCubit extends Cubit<SearchState> {
   void setSearchTerm(String newSearchTerm) {
     // print('In SearchCubit setSearchTerm: $newSearchTerm');
     emit(state.copyWith(searchTerm: newSearchTerm));
+    newSearchTerm = '';
   }
 }

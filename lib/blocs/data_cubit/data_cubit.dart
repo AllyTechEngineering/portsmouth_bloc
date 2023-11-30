@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:portsmouth_bloc/blocs/search/search_cubit.dart';
 import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
 // import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
 import 'package:portsmouth_bloc/models/data_model.dart';
 import 'package:portsmouth_bloc/repositories/centerboard_repository.dart';
+
+// import '../../models/data_class.dart';
 part 'data_state.dart';
 
 class DataCubit extends Cubit<DataState> {
@@ -33,9 +36,9 @@ class DataCubit extends Cubit<DataState> {
         LoadingState(),
       );
       if (selectionCubit.state.selectionClassChoice.name == 'centerboard') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/centerboard.json');
+        final centerboardDataList = await repository.getCenterboard('lib/src/centerboard.json', 'Centerboard');
         if (searchCubit.state.searchTerm.isNotEmpty) {
-          // print('${searchCubit.state.searchTerm}');
+          debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
               .where((DataModel portsmouthModel) =>
                   portsmouthModel.boat.toLowerCase().contains(searchCubit.state.searchTerm) ||
@@ -46,9 +49,9 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'keelboat') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/keelboat.json');
+        final centerboardDataList = await repository.getCenterboard('lib/src/keelboat.json', 'Keelboat');
         if (searchCubit.state.searchTerm.isNotEmpty) {
-          print('${searchCubit.state.searchTerm}');
+          debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
               .where((DataModel portsmouthModel) =>
                   portsmouthModel.boat.toLowerCase().contains(searchCubit.state.searchTerm))
@@ -58,9 +61,9 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'multihull') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/multihull.json');
+        final centerboardDataList = await repository.getCenterboard('lib/src/multihull.json', 'Multihull');
         if (searchCubit.state.searchTerm.isNotEmpty) {
-          print('${searchCubit.state.searchTerm}');
+          debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
               .where((DataModel portsmouthModel) =>
                   portsmouthModel.boat.toLowerCase().contains(searchCubit.state.searchTerm))
@@ -70,7 +73,7 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'offshore') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/offshore.json');
+        final centerboardDataList = await repository.getCenterboard('lib/src/offshore.json', 'Offshore');
         if (searchCubit.state.searchTerm.isNotEmpty) {
           print('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList

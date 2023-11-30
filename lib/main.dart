@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -9,6 +10,7 @@ import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
 import 'package:portsmouth_bloc/screens/data_list_screen.dart';
 import 'package:portsmouth_bloc/screens/definition_screen.dart';
 import 'package:portsmouth_bloc/screens/home_screen.dart';
+import 'package:portsmouth_bloc/screens/home_screen_two.dart';
 import 'package:portsmouth_bloc/screens/keelboat_screen.dart';
 import 'package:portsmouth_bloc/screens/multihull_screen.dart';
 import 'package:portsmouth_bloc/screens/offshore_screen.dart';
@@ -16,7 +18,13 @@ import 'package:portsmouth_bloc/screens/settings_screen.dart';
 import 'package:portsmouth_bloc/repositories/centerboard_repository.dart';
 import 'package:portsmouth_bloc/utilities/theme.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -26,7 +34,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return HomeScreen();
+        return HomeScreenTwo();
       },
       routes: <RouteBase>[
         GoRoute(
