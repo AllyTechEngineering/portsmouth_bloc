@@ -9,15 +9,14 @@ import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
 // import 'package:portsmouth_bloc/models/data_model.dart';
 import 'package:portsmouth_bloc/screens/data_list_screen.dart';
 import 'package:portsmouth_bloc/screens/definition_screen.dart';
-import 'package:portsmouth_bloc/screens/home_screen.dart';
+// import 'package:portsmouth_bloc/screens/home_screen.dart';
 import 'package:portsmouth_bloc/screens/home_screen_two.dart';
-import 'package:portsmouth_bloc/screens/keelboat_screen.dart';
-import 'package:portsmouth_bloc/screens/multihull_screen.dart';
-import 'package:portsmouth_bloc/screens/offshore_screen.dart';
+// import 'package:portsmouth_bloc/screens/keelboat_screen.dart';
+// import 'package:portsmouth_bloc/screens/multihull_screen.dart';
+// import 'package:portsmouth_bloc/screens/offshore_screen.dart';
 import 'package:portsmouth_bloc/screens/settings_screen.dart';
 import 'package:portsmouth_bloc/repositories/centerboard_repository.dart';
 import 'package:portsmouth_bloc/utilities/theme.dart';
-
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -34,7 +33,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return HomeScreenTwo();
+        return HomeScreen();
       },
       routes: <RouteBase>[
         GoRoute(
@@ -43,24 +42,24 @@ final GoRouter _router = GoRouter(
             return DataListScreen();
           },
         ),
-        GoRoute(
-          path: 'multihull_screen',
-          builder: (BuildContext context, GoRouterState state) {
-            return const MultihullScreen();
-          },
-        ),
-        GoRoute(
-          path: 'keelboat_screen',
-          builder: (BuildContext context, GoRouterState state) {
-            return const KeelboatScreen();
-          },
-        ),
-        GoRoute(
-          path: 'offshore_screen',
-          builder: (BuildContext context, GoRouterState state) {
-            return const OffshoreScreen();
-          },
-        ),
+        // GoRoute(
+        //   path: 'multihull_screen',
+        //   builder: (BuildContext context, GoRouterState state) {
+        //     return const MultihullScreen();
+        //   },
+        // ),
+        // GoRoute(
+        //   path: 'keelboat_screen',
+        //   builder: (BuildContext context, GoRouterState state) {
+        //     return const KeelboatScreen();
+        //   },
+        // ),
+        // GoRoute(
+        //   path: 'offshore_screen',
+        //   builder: (BuildContext context, GoRouterState state) {
+        //     return const OffshoreScreen();
+        //   },
+        // ),
         GoRoute(
           path: 'definition_screen',
           builder: (BuildContext context, GoRouterState state) {
@@ -73,12 +72,12 @@ final GoRouter _router = GoRouter(
             return const SettingsScreen();
           },
         ),
-        GoRoute(
-          path: 'data_table_list_screen',
-          builder: (BuildContext context, GoRouterState state) {
-            return DataListScreen();
-          },
-        ),
+        // GoRoute(
+        //   path: 'data_table_list_screen',
+        //   builder: (BuildContext context, GoRouterState state) {
+        //     return DataListScreen();
+        //   },
+        // ),
       ],
     ),
   ],

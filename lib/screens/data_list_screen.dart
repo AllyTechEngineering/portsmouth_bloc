@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portsmouth_bloc/blocs/data_cubit/data_cubit.dart';
 import 'package:portsmouth_bloc/blocs/selection/selection_cubit.dart';
-import 'package:portsmouth_bloc/screens/search_screen.dart';
+import 'package:portsmouth_bloc/screens/search_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/data_model.dart';
 
@@ -20,11 +20,11 @@ class _DataListScreenState extends State<DataListScreen> {
   double fontSizeValue = 0.0;
   late DataListScreen dataListScreen;
   DataModel dataModel = DataModel();
-  @override
-  void initState() {
-    fontSizeValue = selectTextSize();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   fontSizeValue = selectTextSize();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,14 @@ class _DataListScreenState extends State<DataListScreen> {
                 style: TextStyle(
                   fontSize: fontSizeValue = selectTextSize(),
                   color: Colors.white,
+                ),
+              ),
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/ocean_background.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
@@ -70,7 +78,6 @@ class _DataListScreenState extends State<DataListScreen> {
                       } else if (state is LoadedState) {
                         fontSizeValue = selectTextSize();
                         final centerboardListValue = state.centerboard;
-                        debugPrint('centerboardListValue.length: ${centerboardListValue.length}');
                         return Flexible(
                           child: ListView.builder(
                             shrinkWrap: true,
@@ -79,7 +86,7 @@ class _DataListScreenState extends State<DataListScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Card(
                                   elevation: 10.0,
-                                  color: Colors.lightBlueAccent,
+                                  color: Color(0xFF64CCC5),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[

@@ -15,26 +15,25 @@ class _SearchDataState extends State<SearchData> {
   String? _newSearchTerm = '';
   @override
   Widget build(BuildContext context) {
-    // orientation = MediaQuery.of(context).orientation;
-    // print('Orientation: $orientation');
-    // size = MediaQuery.of(context).size;
-    // print('Size: $size');
-    // height = size.height;
-    // print('Height: $height');
-    // width = size.width;
-    // print('Width: $width');
+    orientation = MediaQuery.of(context).orientation;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
+
     return Container(
-      // height: height * 0.25,
-      // width: width * 0.8,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(4.0, 2.0, 4.0, 1.0),
         child: ListTile(
           title: TextField(
             cursorColor: Colors.white,
             controller: controller,
             decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+                borderSide: BorderSide(width: 4.0, color: Colors.black),
+              ),
               hintStyle: Theme.of(context).textTheme.displayLarge,
-              hintText: 'Search...',
+              hintText: 'Use lower case for search...',
               prefixIcon: Icon(
                 Icons.search,
                 // size: height * 0.08,
@@ -48,10 +47,15 @@ class _SearchDataState extends State<SearchData> {
             },
           ),
           trailing: IconButton(
+            visualDensity: VisualDensity.standard,
+            focusColor: Colors.cyanAccent.withOpacity(0.3),
+            hoverColor: Colors.redAccent.withOpacity(0.3),
+            highlightColor: Colors.lime,
+            splashColor: Colors.amber,
             icon: Icon(
-              Icons.cancel,
+              Icons.delete_forever,
               color: Colors.white,
-              // size: height * 0.08,
+              size: 30.0,
             ),
             onPressed: () {
               setState(() {

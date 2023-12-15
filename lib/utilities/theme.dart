@@ -21,7 +21,9 @@ final appTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFFE5E8E8),
   inputDecorationTheme: const InputDecorationTheme(
     filled: true,
-    fillColor: Color(0xFF053B50),
+    // fillColor: Colors.white,
+    // fillColor: Color(0xFF053B50),
+    fillColor: Color(0xFF34495E),
     focusColor: Color(0xFFEEEEEE),
     hoverColor: Color(0xFFEEEEEE),
     prefixIconColor: Color(0xFFFFFFFF),
@@ -58,7 +60,7 @@ final appTheme = ThemeData(
     ),
     elevation: 4,
     centerTitle: true,
-    backgroundColor: Color(0xFF053B50),
+    backgroundColor: Color(0xFF176B87),
     foregroundColor: Colors.white,
   ),
 

@@ -36,9 +36,10 @@ class DataCubit extends Cubit<DataState> {
         LoadingState(),
       );
       if (selectionCubit.state.selectionClassChoice.name == 'centerboard') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/centerboard.json', 'Centerboard');
+        final centerboardDataList =
+            await repository.getCenterboard('lib/src/centerboard.json', 'Centerboard');
         if (searchCubit.state.searchTerm.isNotEmpty) {
-          debugPrint('${searchCubit.state.searchTerm}');
+          // debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
               .where((DataModel portsmouthModel) =>
                   portsmouthModel.boat.toLowerCase().contains(searchCubit.state.searchTerm) ||
@@ -49,7 +50,8 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'keelboat') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/keelboat.json', 'Keelboat');
+        final centerboardDataList =
+            await repository.getCenterboard('lib/src/keelboat.json', 'Keelboat');
         if (searchCubit.state.searchTerm.isNotEmpty) {
           debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
@@ -61,7 +63,8 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'multihull') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/multihull.json', 'Multihull');
+        final centerboardDataList =
+            await repository.getCenterboard('lib/src/multihull.json', 'Multihull');
         if (searchCubit.state.searchTerm.isNotEmpty) {
           debugPrint('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
@@ -73,7 +76,8 @@ class DataCubit extends Cubit<DataState> {
           emit(LoadedState(centerboardDataList));
         }
       } else if (selectionCubit.state.selectionClassChoice.name == 'offshore') {
-        final centerboardDataList = await repository.getCenterboard('lib/src/offshore.json', 'Offshore');
+        final centerboardDataList =
+            await repository.getCenterboard('lib/src/offshore.json', 'Offshore');
         if (searchCubit.state.searchTerm.isNotEmpty) {
           print('${searchCubit.state.searchTerm}');
           _filteredList = centerboardDataList
